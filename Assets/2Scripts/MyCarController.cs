@@ -45,6 +45,7 @@ public class MyCarController : MonoBehaviour
         {
             onGround = true;
             surfaceEffector2D = effector;
+            Debug.Log("Surface Effector Detected: " + effector.name);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
@@ -70,11 +71,11 @@ public class MyCarController : MonoBehaviour
         if (surfaceEffector2D == null) return;
         if (isEnding) return;
 
-        if (Input.GetKeyDown(KeyCode.D))
+        if (Input.GetKey(KeyCode.D))
         {
             surfaceEffector2D.speed = boostSpeed;
         }
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.GetKey(KeyCode.A))
         {
             surfaceEffector2D.speed = slowSpeed;
         }
@@ -82,7 +83,7 @@ public class MyCarController : MonoBehaviour
         {
             surfaceEffector2D.speed = speed;
         }
-        else if (Input.GetKeyDown(KeyCode.W) && onGround)
+        else if (Input.GetKey(KeyCode.W) && onGround)
         {
             Jump();
         }
